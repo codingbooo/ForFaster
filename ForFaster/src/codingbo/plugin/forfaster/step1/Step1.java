@@ -32,9 +32,9 @@ public class Step1 extends AnAction {
 
     private static void copyFile(String from, String to, String toFileName) {
 
-        copyFile(from + "/192.png", to + "/xxxdpi/" + toFileName);
-        copyFile(from + "/144.png", to + "/xxdpi/" + toFileName);
-        copyFile(from + "/96.png", to + "/xdpi/" + toFileName);
+        copyFile(from + "/192.png", to + "/xxxhdpi/" + toFileName);
+        copyFile(from + "/144.png", to + "/xxhdpi/" + toFileName);
+        copyFile(from + "/96.png", to + "/xhdpi/" + toFileName);
         copyFile(from + "/72.png", to + "/hdpi/" + toFileName);
         copyFile(from + "/48.png", to + "/mdpi/" + toFileName);
 
@@ -42,11 +42,6 @@ public class Step1 extends AnAction {
 
     private static void copyFile(String from, String toFile) {
         File file = new File(toFile);
-//        if (!file.exists()) {
-//            if (!file.mkdirs()) {
-//                return;
-//            }
-//        }
         File parentFile = file.getParentFile();
         if (!parentFile.exists()) {
             if (!parentFile.mkdirs()) {
@@ -61,7 +56,7 @@ public class Step1 extends AnAction {
             fileOs = new FileOutputStream(toFile);
 
             byte[] bytes = new byte[1024];
-            int len = -1;
+            int len;
             while ((len = fileIs.read(bytes)) > 0) {
                 fileOs.write(bytes, 0, len);
             }

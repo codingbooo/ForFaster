@@ -3,8 +3,12 @@ package codingbo.plugin.forfaster.step1;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import groovy.lang.GroovyShell;
+import kotlin.collections.ArraysKt;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by bob on 18.5.29.
@@ -15,14 +19,10 @@ public class Step1 extends AnAction {
     public void actionPerformed(AnActionEvent e) {
 //        Messages.showMessageDialog("Hello World !", "forFaster1111", Messages.getInformationIcon());
         Step1InputDialog inputDialog = new Step1InputDialog();
-        inputDialog.setOkListener((from, to, toFileName) -> {
-            System.out.println("from:" + from);
-            System.out.println("to:" + to);
-            System.out.println("toFileName:" + toFileName);
-
-            copyFile(from, to, toFileName);
-
-        });
+//        inputDialog.setOkListener((from, to, toFileName) -> {
+//            copyFile(from, to, toFileName);
+//        });
+        inputDialog.setOkListener(Step1::copyFile);
         inputDialog.setTitle("ForFaster_Step1");
         inputDialog.pack();
         inputDialog.setLocationRelativeTo(null);
@@ -31,13 +31,20 @@ public class Step1 extends AnAction {
 
 
     private static void copyFile(String from, String to, String toFileName) {
+//        copyFile(from + "/192.png", to + "/xxxhdpi/" + toFileName);
+//        copyFile(from + "/144.png", to + "/xxhdpi/" + toFileName);
+//        copyFile(from + "/96.png", to + "/xhdpi/" + toFileName);
+//        copyFile(from + "/72.png", to + "/hdpi/" + toFileName);
+//        copyFile(from + "/48.png", to + "/mdpi/" + toFileName);
 
-        copyFile(from + "/192.png", to + "/xxxhdpi/" + toFileName);
-        copyFile(from + "/144.png", to + "/xxhdpi/" + toFileName);
-        copyFile(from + "/96.png", to + "/xhdpi/" + toFileName);
-        copyFile(from + "/72.png", to + "/hdpi/" + toFileName);
-        copyFile(from + "/48.png", to + "/mdpi/" + toFileName);
+        HashMap<String, String> files = new HashMap<>();
+        files.put("/192.png", "/xxxhdpi/");
+        files.put("/144.png", "/xxhdpi/");
+        files.put("/96.png", "/xhdpi/");
+        files.put("/72.png", "/hdpi/");
+        files.put("/48.png", "/mdpi/");
 
+        files.forEach((key, value) -> copyFile(from + key, to + value + toFileName));
     }
 
     private static void copyFile(String from, String toFile) {
@@ -84,6 +91,6 @@ public class Step1 extends AnAction {
 
 
     public static void main(String[] args) {
-        copyFile("D:\\test","D:\\test\\test2","ic_launch11.png");
+        copyFile("D:\\test", "D:\\test\\test2", "ic_launch11.png");
     }
 }

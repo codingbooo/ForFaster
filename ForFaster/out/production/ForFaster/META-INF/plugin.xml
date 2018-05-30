@@ -1,0 +1,39 @@
+<idea-plugin>
+  <id>XianYu Co,.Ltd</id>
+  <name>ForFaster</name>
+  <version>1.0</version>
+  <vendor email="coder@xianyu.com" url="http://www.xianyu.com">咸鱼科技</vendor>
+
+  <description><![CDATA[
+      这是一个提高你办公效率的插件.<br>
+      <em>---by 咸鱼科技</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      第一个版本.<br>
+      <em>1.0.0</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="145.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="ForFaster.step1" class="codingbo.plugin.forfaster.step1.Step1" text="ForFaster_Step1"
+            description="copy icon to src">
+      <add-to-group group-id="EditMenu" anchor="first"/>
+    </action>
+  </actions>
+
+</idea-plugin>

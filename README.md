@@ -3,7 +3,7 @@ android studio plugin list
 
 ### 1.复制图标功能
 
-![](https://github.com/codingbooo/ForFaster/tree/master/image/image_step_1.png)
+![](https://github.com/codingbooo/ForFaster/blob/master/image/image_step_1.png?raw=true)
 
 *名字为192.png,144.png,96.png,72.png,48.png的图标文件复制到指定的文件夹的xxxhdpi,xxhdpi,xhdpi,hdpi,mdpi文件夹中*
 

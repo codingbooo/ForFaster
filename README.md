@@ -3,15 +3,15 @@
 android studio 插件集合
 
 
-### 1.Step1：复制图标
+## 1.Step1：复制图标
 
-#### 功能
+### 功能
 
 将名字`192.png`、`144.png`、`96.png`、`72.png`、`48.png`的图标文件，  
 复制到指定的文件夹的`xxxhdpi`、`xxhdpi`、`xhdpi`、`hdpi`、`mdpi`文件夹中
 
 
-#### 用法
+### 用法
 
  **1.从Edit找到 ForFaster_Step1**
 

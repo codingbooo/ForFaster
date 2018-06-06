@@ -10,6 +10,7 @@ public class Step1InputDialog extends JDialog {
     private JTextField tfFrom;
     private JTextField tfTo;
     private JTextField tfToFileName;
+    private JTextField tfToDirPrefix;
     private JLabel LabelTips;
     private OnOkListener listener;
 
@@ -18,17 +19,9 @@ public class Step1InputDialog extends JDialog {
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
-        buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onOK();
-            }
-        });
+        buttonOK.addActionListener(e -> onOK());
 
-        buttonCancel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        });
+        buttonCancel.addActionListener(e -> onCancel());
 
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -37,19 +30,16 @@ public class Step1InputDialog extends JDialog {
                 onCancel();
             }
         });
-
         // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        contentPane.registerKeyboardAction(e -> onCancel(),
+                KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
     private void onOK() {
         // add your code here
         String from = tfFrom.getText();
         String to = tfTo.getText();
+        String toDirPrefix = tfToDirPrefix.getText();
         String toFileName = tfToFileName.getText();
 
         if (!textIsEmpty(from)
@@ -60,8 +50,13 @@ public class Step1InputDialog extends JDialog {
             return;
         }
 
+        System.out.println("from = " + from);
+        System.out.println("to = " + to);
+        System.out.println("toDirPrefix = " + toDirPrefix);
+        System.out.println("toFileName = " + toFileName);
+
         if (listener != null) {
-            listener.onOk(from, to, toFileName);
+            listener.onOk(from, to, toDirPrefix, toFileName);
         }
 
         dispose();
@@ -78,7 +73,7 @@ public class Step1InputDialog extends JDialog {
 
 
     public interface OnOkListener {
-        void onOk(String from, String to, String toFileName);
+        void onOk(String from, String to, String toDirPrefix, String toFileName);
     }
 
 
@@ -88,9 +83,9 @@ public class Step1InputDialog extends JDialog {
     }
 
 
-
     public static void main(String[] args) {
         Step1InputDialog dialog = new Step1InputDialog();
+        dialog.setOkListener(Step1::copyFile);
         dialog.pack();
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);

@@ -3,7 +3,7 @@
   <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="48" y="54" width="1448" height="297"/>
+      <xy x="48" y="54" width="1448" height="337"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -44,7 +44,7 @@
           </grid>
         </children>
       </grid>
-      <grid id="e3588" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="e3588" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -113,7 +113,7 @@
           <grid id="2fb52" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="true" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -141,7 +141,7 @@
           </grid>
           <component id="24d9a" class="javax.swing.JLabel" binding="LabelTips">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value=""/>
@@ -152,9 +152,35 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="&lt;html&gt;&#10;&lt;body&gt;&#10;复制图标功能&#10;&lt;br&gt;&#10;名字为192.png,144.png,96.png,72.png,48.png的图标文件复制到指定的文件夹的xxxhdpi,xxhdpi,xhdpi,hdpi,mdpi文件夹中&#10;&lt;br&gt;&#10;From : 待复制文件绝对路径(如:D:\test\)&#10;&lt;br&gt;&#10;To: 目标文件绝对路径(如:D:\test\to\)&#10;&lt;br&gt;&#10;ToFileName: 目标文件名称(例如:ic_launch.png)&#10;&lt;br&gt;&#10;&#9;&lt;body&gt;&#10;&lt;/html&gt;&#10;"/>
+              <text value="&lt;html&gt; &#9;&lt;body&gt; 复制图标功能 &#9;&#9;&lt;br&gt; 名字为192.png,144.png,96.png,72.png,48.png的图标文件复制到指定的文件夹的xxxhdpi,xxhdpi,xhdpi,hdpi,mdpi文件夹中 &lt;br&gt; From : 待复制文件绝对路径(如:D:\test\) &lt;br&gt; To: 目标文件绝对路径(如:D:\test\to\) &lt;br&gt; ToDirPrefix: 目标文件路径前缀(如: mipmap或drawable) &lt;br&gt; ToFileName: 目标文件名称(例如:ic_launch.png) &lt;br&gt; &#9;&lt;body&gt; &lt;/html&gt;"/>
             </properties>
           </component>
+          <grid id="e232" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="true" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="d26e5" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="ToDirPrefix"/>
+                </properties>
+              </component>
+              <component id="c5d9a" class="javax.swing.JTextField" binding="tfToDirPrefix">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+            </children>
+          </grid>
         </children>
       </grid>
     </children>

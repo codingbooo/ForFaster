@@ -30,21 +30,30 @@ public class Step1 extends AnAction {
     }
 
 
-    private static void copyFile(String from, String to, String toFileName) {
-//        copyFile(from + "/192.png", to + "/xxxhdpi/" + toFileName);
-//        copyFile(from + "/144.png", to + "/xxhdpi/" + toFileName);
-//        copyFile(from + "/96.png", to + "/xhdpi/" + toFileName);
-//        copyFile(from + "/72.png", to + "/hdpi/" + toFileName);
-//        copyFile(from + "/48.png", to + "/mdpi/" + toFileName);
+    public static void copyFile(String from, String to, String toDirPrefix, String toFileName) {
 
         HashMap<String, String> files = new HashMap<>();
-        files.put("/192.png", "/xxxhdpi/");
-        files.put("/144.png", "/xxhdpi/");
-        files.put("/96.png", "/xhdpi/");
-        files.put("/72.png", "/hdpi/");
-        files.put("/48.png", "/mdpi/");
+        files.put("/192.png", "xxxhdpi");
+        files.put("/144.png", "xxhdpi");
+        files.put("/96.png", "xhdpi");
+        files.put("/72.png", "hdpi");
+        files.put("/48.png", "mdpi");
 
-        files.forEach((key, value) -> copyFile(from + key, to + value + toFileName));
+        files.forEach((fromFileName, toDirSuffix) ->
+                copyFile(getFromPath(from, fromFileName), getToPath(to, toDirPrefix, toDirSuffix, toFileName)));
+    }
+
+    private static String getToPath(String to, String toDirPrefix, String toDirSuffix, String toFileName) {
+        return to + "/" +
+                toDirPrefix +
+                "-" +
+                toDirSuffix +
+                "/" +
+                toFileName;
+    }
+
+    private static String getFromPath(String from, String key) {
+        return from + key;
     }
 
     private static void copyFile(String from, String toFile) {
@@ -91,6 +100,6 @@ public class Step1 extends AnAction {
 
 
     public static void main(String[] args) {
-        copyFile("D:\\test", "D:\\test\\test2", "ic_launch11.png");
+        copyFile("D:\\test", "D:\\test\\test2", "mipmap1", "ic_launch11.png");
     }
 }

@@ -3,6 +3,18 @@ package codingbo.plugin.forfaster.step1;
 import javax.swing.*;
 import java.awt.event.*;
 
+/**
+ * <html>
+ * 	<body> 复制图标功能
+ * 		<br> 将图标文件处理为分辨率为192*192, 144*144, 96*96, 72*72, 48*48的图标文件,复制到指定的文件夹的xxxhdpi,xxhdpi,xhdpi,hdpi,mdpi文件夹中
+ * 		<br> From : 待复制文件绝对路径(如:D:\test\icon.png)
+ * 		<br> To: 目标文件绝对路径(如:D:\test\to\)
+ * 		<br> ToDirPrefix: 目标文件路径前缀(如: mipmap或drawable)
+ * 		<br> ToFileName: 目标文件名称(例如:ic_launch.png)
+ * 		<br>
+ * 	<body>
+ * </html>
+ */
 public class Step1InputDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
@@ -85,7 +97,7 @@ public class Step1InputDialog extends JDialog {
 
     public static void main(String[] args) {
         Step1InputDialog dialog = new Step1InputDialog();
-        dialog.setOkListener(Step1::copyFile);
+        dialog.setOkListener(ImageUtils.Companion::bigBang);
         dialog.pack();
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);

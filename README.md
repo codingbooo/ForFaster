@@ -7,7 +7,7 @@ android studio 插件集合
 
 ### 功能
 
-将名字`192.png`、`144.png`、`96.png`、`72.png`、`48.png`的图标文件，  
+将名字`192*192`、`144*144`、`96*96`、`72*72`、`48*48`的图标文件，  
 复制到指定的文件夹的`xxxhdpi`、`xxhdpi`、`xhdpi`、`hdpi`、`mdpi`文件夹中
 
 
@@ -23,7 +23,7 @@ android studio 插件集合
 
 说明: 
 
-- **From** : 待复制文件绝对路径(如:`D:\test\`) 
+- **From** : 待复制文件绝对路径(如:`D:\test\icon.png`) 
 - **To**: 目标文件绝对路径(如:`D:\test\to\`) 
 - **ToDirPrefix**: 目标文件路径前缀(如: `mipmap`或`drawable`) 
 - **ToFileName**: 目标文件名称(例如:`ic_launch.png`) 

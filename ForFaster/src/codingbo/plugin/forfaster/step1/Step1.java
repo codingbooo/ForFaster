@@ -2,13 +2,6 @@ package codingbo.plugin.forfaster.step1;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import groovy.lang.GroovyShell;
-import kotlin.collections.ArraysKt;
-
-import java.io.*;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by bob on 18.5.29.
@@ -17,89 +10,17 @@ public class Step1 extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-//        Messages.showMessageDialog("Hello World !", "forFaster1111", Messages.getInformationIcon());
         Step1InputDialog inputDialog = new Step1InputDialog();
-//        inputDialog.setOkListener((from, to, toFileName) -> {
-//            copyFile(from, to, toFileName);
-//        });
-        inputDialog.setOkListener(Step1::copyFile);
+        inputDialog.setOkListener(ImageUtils.Companion::bigBang);
         inputDialog.setTitle("ForFaster_Step1");
         inputDialog.pack();
         inputDialog.setLocationRelativeTo(null);
         inputDialog.setVisible(true);
     }
 
-
-    public static void copyFile(String from, String to, String toDirPrefix, String toFileName) {
-
-        HashMap<String, String> files = new HashMap<>();
-        files.put("/192.png", "xxxhdpi");
-        files.put("/144.png", "xxhdpi");
-        files.put("/96.png", "xhdpi");
-        files.put("/72.png", "hdpi");
-        files.put("/48.png", "mdpi");
-
-        files.forEach((fromFileName, toDirSuffix) ->
-                copyFile(getFromPath(from, fromFileName), getToPath(to, toDirPrefix, toDirSuffix, toFileName)));
-    }
-
-    private static String getToPath(String to, String toDirPrefix, String toDirSuffix, String toFileName) {
-        return to + "/" +
-                toDirPrefix +
-                "-" +
-                toDirSuffix +
-                "/" +
-                toFileName;
-    }
-
-    private static String getFromPath(String from, String key) {
-        return from + key;
-    }
-
-    private static void copyFile(String from, String toFile) {
-        File file = new File(toFile);
-        File parentFile = file.getParentFile();
-        if (!parentFile.exists()) {
-            if (!parentFile.mkdirs()) {
-                return;
-            }
-        }
-
-        FileInputStream fileIs = null;
-        FileOutputStream fileOs = null;
-        try {
-            fileIs = new FileInputStream(from);
-            fileOs = new FileOutputStream(toFile);
-
-            byte[] bytes = new byte[1024];
-            int len;
-            while ((len = fileIs.read(bytes)) > 0) {
-                fileOs.write(bytes, 0, len);
-            }
-            fileOs.flush();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fileIs != null) {
-                try {
-                    fileIs.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (fileOs != null) {
-                try {
-                    fileOs.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-
     public static void main(String[] args) {
-        copyFile("D:\\test", "D:\\test\\test2", "mipmap1", "ic_launch11.png");
+        ImageUtils.Companion.bigBang("C:\\Users\\bob\\Desktop\\109779420.png",
+                "C:\\Users\\bob\\Desktop\\result", "mipmap", "ic_launch.png");
+
     }
 }

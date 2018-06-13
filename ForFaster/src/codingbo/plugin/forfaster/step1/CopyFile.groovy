@@ -22,6 +22,7 @@ task myTask {
                 rename {
                     String fn -> fn.replace(formFileName, toFileName)
                 }
+
             }
     }
     println "copy start."

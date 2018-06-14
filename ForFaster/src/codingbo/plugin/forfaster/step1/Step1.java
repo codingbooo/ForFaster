@@ -19,7 +19,7 @@ public class Step1 extends AnAction {
     }
 
     public static void main(String[] args) {
-        ImageUtils.Companion.bigBang("C:\\Users\\bob\\Desktop\\109779420.png",
+        ImageUtils.Companion.bigBang("C:\\Users\\bob\\Desktop\\result\\109779420.png",
                 "C:\\Users\\bob\\Desktop\\result", "mipmap", "ic_launch.png");
 
     }

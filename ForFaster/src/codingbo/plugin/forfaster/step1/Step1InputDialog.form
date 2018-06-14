@@ -152,7 +152,7 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="&lt;html&gt; &#9;&lt;body&gt; 复制图标功能 &#9;&#9;&lt;br&gt; 将图标文件处理为分辨率为的图标文件192*192, 144*144, 96*96, 72*72, 48*48,复制到指定的文件夹的xxxhdpi,xxhdpi,xhdpi,hdpi,mdpi文件夹中  &#9;&#9;&lt;br&gt; From : 待复制文件绝对路径(如:D:\test\icon.png)  &#9;&#9;&lt;br&gt; To: 目标文件绝对路径(如:D:\test\to\) &#9;&#9;&lt;br&gt; ToDirPrefix: 目标文件路径前缀(如: mipmap或drawable)  &#9;&#9;&lt;br&gt; ToFileName: 目标文件名称(例如:ic_launch.png)  &#9;&#9;&lt;br&gt; &#9; &#9;&lt;body&gt;  &lt;/html&gt;"/>
+              <text value="&lt;html&gt; &#9;&lt;body&gt; 复制图标功能 &#9;&#9;&lt;br&gt; 将一个本地图片文件处理成分辨率为192*192, 144*144, 96*96, 72*72, 48*48的图标文件,复制到指定的文件夹的xxxhdpi,xxhdpi,xhdpi,hdpi,mdpi文件夹中 &#9;&#9;&lt;br&gt; From : 待复制文件绝对路径(如:D:\test\icon.png) &#9;&#9;&lt;br&gt; To: 目标文件绝对路径(如:D:\test\to\) &#9;&#9;&lt;br&gt; ToDirPrefix: 目标文件路径前缀(如: mipmap或drawable) &#9;&#9;&lt;br&gt; ToFileName: 目标文件名称(例如:ic_launch.png) &#9;&#9;&lt;br&gt; &#9;&lt;body&gt; &lt;/html&gt;"/>
             </properties>
           </component>
           <grid id="e232" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="true" same-size-vertically="false" hgap="-1" vgap="-1">

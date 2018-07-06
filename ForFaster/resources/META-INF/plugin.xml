@@ -2,7 +2,7 @@
     <id>XianYu Co,.Ltd</id>
     <name>ForFaster</name>
     <version>1.1</version>
-    <vendor email="cnsdbo@163.com" url="http://www.codingbo.top">codingbo</vendor>
+    <vendor email="cnsdbo@163.com" url="https://github.com/codingbooo/ForFaster">codingbo</vendor>
 
     <description><![CDATA[
       这是一个提高你办公效率的插件.<br>
@@ -10,8 +10,8 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      第一个版本.<br>
-      <em>1.0.0</em>
+      1. Step1不在需要创建各个分辨率的图片文件,给定一个图片文件路径,程序将会自动处理图片<br>
+      <em>1.1.0</em>
     ]]>
     </change-notes>
 

@@ -3,6 +3,8 @@ package codingbo.plugin.forfaster.step1;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 
+import java.io.IOException;
+
 /**
  * Created by bob on 18.5.29.
  */
@@ -19,8 +21,7 @@ public class Step1 extends AnAction {
     }
 
     public static void main(String[] args) {
-        ImageUtils.Companion.bigBang("C:\\Users\\bob\\Desktop\\result\\109779420.png",
-                "C:\\Users\\bob\\Desktop\\result", "mipmap", "ic_launch.png");
-
+        ImageUtils.Companion.bigBang("C:\\result\\test.png",
+                "C:\\result", "mipmap", "ic_launch.png");
     }
 }

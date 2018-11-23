@@ -1,18 +1,20 @@
 package codingbo.plugin.forfaster.step1;
 
+import org.jetbrains.annotations.Nullable;
+
 import javax.swing.*;
 import java.awt.event.*;
 
 /**
  * <html>
- * 	<body> 复制图标功能
- * 		<br> 将一个本地图片文件处理成分辨率为192*192, 144*144, 96*96, 72*72, 48*48的图标文件,复制到指定的文件夹的xxxhdpi,xxhdpi,xhdpi,hdpi,mdpi文件夹中
- * 		<br> From : 待复制文件绝对路径(如:D:\test\icon.png)
- * 		<br> To: 目标文件绝对路径(如:D:\test\to\)
- * 		<br> ToDirPrefix: 目标文件路径前缀(如: mipmap或drawable)
- * 		<br> ToFileName: 目标文件名称(例如:ic_launch.png)
- * 		<br>
- * 	<body>
+ * <body> 复制图标功能
+ * <br> 将一个本地图片文件处理成分辨率为192*192, 144*144, 96*96, 72*72, 48*48的图标文件,复制到指定的文件夹的xxxhdpi,xxhdpi,xhdpi,hdpi,mdpi文件夹中
+ * <br> From : 待复制文件绝对路径(如:D:\test\icon.png)
+ * <br> To: 目标文件绝对路径(如:D:\test\to\)
+ * <br> ToDirPrefix: 目标文件路径前缀(如: mipmap或drawable)
+ * <br> ToFileName: 目标文件名称(例如:ic_launch.png)
+ * <br>
+ * <body>
  * </html>
  */
 public class Step1InputDialog extends JDialog {
@@ -24,7 +26,6 @@ public class Step1InputDialog extends JDialog {
     private JTextField tfToFileName;
     private JTextField tfToDirPrefix;
     private JLabel LabelTips;
-    private OnOkListener listener;
 
     public Step1InputDialog() {
         setContentPane(contentPane);
@@ -49,16 +50,15 @@ public class Step1InputDialog extends JDialog {
 
     private void onOK() {
         // add your code here
-        String from = tfFrom.getText();
+        String from = tfFrom.getText().trim();
         String to = tfTo.getText();
         String toDirPrefix = tfToDirPrefix.getText();
         String toFileName = tfToFileName.getText();
 
-        if (!textIsEmpty(from)
-                || !textIsEmpty(to)
-                || !textIsEmpty(toFileName)) {
+        if (textIsEmpty(from)
+                || textIsEmpty(to)
+                || textIsEmpty(toFileName)) {
             LabelTips.setText("字段不能为空");
-
             return;
         }
 
@@ -67,37 +67,30 @@ public class Step1InputDialog extends JDialog {
         System.out.println("toDirPrefix = " + toDirPrefix);
         System.out.println("toFileName = " + toFileName);
 
-        if (listener != null) {
-            listener.onOk(from, to, toDirPrefix, toFileName);
-        }
+        ImageUtils.Companion.bigBang(from, to, toDirPrefix, toFileName, new ImageUtils.Callback() {
+            @Override
+            public void finish() {
+                LabelTips.setText("完成");
+            }
 
-        dispose();
+            @Override
+            public void failed(@Nullable String msg) {
+                LabelTips.setText("失败:" + msg);
+            }
+        });
+
     }
-
 
     private boolean textIsEmpty(String txt) {
-        return txt != null && txt.length() > 0;
+        return txt == null || txt.length() <= 0;
     }
-
-    public void setOkListener(OnOkListener listener) {
-        this.listener = listener;
-    }
-
-
-    public interface OnOkListener {
-        void onOk(String from, String to, String toDirPrefix, String toFileName);
-    }
-
 
     private void onCancel() {
-        // add your code here if necessary
         dispose();
     }
-
 
     public static void main(String[] args) {
         Step1InputDialog dialog = new Step1InputDialog();
-        dialog.setOkListener(ImageUtils.Companion::bigBang);
         dialog.pack();
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);

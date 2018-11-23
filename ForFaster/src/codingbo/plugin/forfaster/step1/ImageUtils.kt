@@ -13,20 +13,29 @@ import javax.imageio.ImageIO
 
 class ImageUtils {
 
+    interface Callback {
+        fun finish()
+        fun failed(msg: String?)
+    }
+
     companion object {
         /**
          * 图标爆炸
          * 将指定图标文件 保存为 分辨率分别为 192, 144, 96, 72, 48的文件
          */
-        fun bigBang(inPath: String, outPath: String, outDirPrefix: String, outFileName: String) {
-
-
-            val file = File(inPath)
-            file.canRead()
-            val rawImage = ImageIO.read(file)
-            val map = mapOf(192 to "xxxhdpi", 144 to "xxhdpi", 96 to "xhdpi", 72 to "hdpi", 48 to "mdpi")
-            map.forEach {
-                scaleAndSave(rawImage, it.key, "$outPath/$outDirPrefix-${it.value}/$outFileName")
+        fun bigBang(inPath: String, outPath: String, outDirPrefix: String, outFileName: String, cb: Callback) {
+            try {
+                val file = File(inPath)
+                file.canRead()
+                val rawImage = ImageIO.read(file)
+                val map = mapOf(192 to "xxxhdpi", 144 to "xxhdpi", 96 to "xhdpi", 72 to "hdpi", 48 to "mdpi")
+                map.forEach {
+                    scaleAndSave(rawImage, it.key, "$outPath/$outDirPrefix-${it.value}/$outFileName")
+                }
+                cb.finish()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                cb.failed(e.message)
             }
         }
 

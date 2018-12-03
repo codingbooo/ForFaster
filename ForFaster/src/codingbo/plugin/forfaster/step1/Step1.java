@@ -4,6 +4,10 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import org.jetbrains.annotations.Nullable;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -21,11 +25,17 @@ public class Step1 extends AnAction {
     }
 
     public static void main(String[] args) {
-        ImageUtils.Companion.bigBang("C:\\result\\test.png",
-                "C:\\result", "mipmap", "ic_launch.png", new ImageUtils.Callback() {
+        ImageUtils.Companion.bigBang("C:\\Users\\bob\\Desktop\\test\\icon.png",
+                "C:\\Users\\bob\\Desktop\\test", "mipmap", "ic_launch.png", new ImageUtils.Callback() {
                     @Override
                     public void finish() {
-
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+//                        ImageUtils.Companion.deleteOldFiles();
+                        ImageUtils.Companion.revoke();
                     }
 
                     @Override
@@ -33,5 +43,21 @@ public class Step1 extends AnAction {
 
                     }
                 });
+
+//        File file = new File("C:\\Users\\bob\\Desktop\\test\\demo");
+//        try {
+//            FileOutputStream fos = new FileOutputStream(file);
+//            fos.write("Hello World".getBytes());
+//
+//            // 拼dos命令
+//            // attrib的祥细功能介绍请在DOS内输入 " attrib /? " 查看
+//            String sets = "attrib +H \"" + file.getAbsolutePath() + "\"";
+//            // 输出命令串
+//            System.out.println(sets);
+//            // 运行命令串
+//            Runtime.getRuntime().exec(sets);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 }

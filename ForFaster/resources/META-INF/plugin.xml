@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>XianYu Co,.Ltd</id>
     <name>ForFaster</name>
-    <version>1.1.1</version>
+    <version>1.2.0</version>
     <vendor email="cnsdbo@163.com" url="https://github.com/codingbooo/ForFaster">codingbo</vendor>
 
     <description><![CDATA[
@@ -10,12 +10,19 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      <em>1.1.1</em><br>
-      1.增加错误提示<br>
-      2.完成时不再直接退出窗口<br>
-        <br>
-      <em>1.1.0</em><br>
-      Step1不在需要创建各个分辨率的图片文件,给定一个图片文件路径,程序将会自动处理图片<br>
+       <em>1.2.0</em><br>
+          1.增加撤销功能<br>
+          2.增加当前进度提示<br>
+          3.优化大图片分辨率压缩后模糊<br>
+          <br>
+
+       <em>1.1.1</em><br>
+         1.增加错误提示<br>
+         2.完成时不再直接退出窗口<br>
+         <br>
+
+       <em>1.1.0</em><br>
+         Step1不在需要创建各个分辨率的图片文件,给定一个图片文件路径,程序将会自动处理图片<br>
     ]]>
     </change-notes>
 
@@ -24,9 +31,8 @@
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
+     <!--uncomment to enable plugin in all products-->
+    <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->

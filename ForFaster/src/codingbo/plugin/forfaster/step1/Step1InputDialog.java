@@ -18,6 +18,10 @@ import java.awt.event.*;
  * </html>
  */
 public class Step1InputDialog extends JDialog {
+    public static final String STR_CONFIRM = "确定";
+    public static final String STR_REVOKE = "撤销";
+    public static final String STR_FINISH = "完成";
+
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
@@ -34,22 +38,36 @@ public class Step1InputDialog extends JDialog {
 
         buttonOK.addActionListener(e -> onOK());
 
-        buttonCancel.addActionListener(e -> onCancel());
+        buttonCancel.addActionListener(e -> onFinish());
 
-        // call onCancel() when cross is clicked
+        // call onFinish() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
-                onCancel();
+                onFinish();
             }
         });
-        // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(e -> onCancel(),
+        // call onFinish() on ESCAPE
+        contentPane.registerKeyboardAction(e -> onFinish(),
                 KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
     private void onOK() {
-        // add your code here
+        if (STR_CONFIRM.equals(buttonOK.getText())) {
+            replace();
+        } else {
+            revoke();
+        }
+    }
+
+    private void revoke() {
+        setStatus("撤销中...");
+        ImageUtils.Companion.revoke();
+        setStatus("撤销完成!请重新操作");
+        buttonOK.setText(STR_CONFIRM);
+    }
+
+    private void replace() {
         String from = tfFrom.getText().trim();
         String to = tfTo.getText();
         String toDirPrefix = tfToDirPrefix.getText();
@@ -58,7 +76,7 @@ public class Step1InputDialog extends JDialog {
         if (textIsEmpty(from)
                 || textIsEmpty(to)
                 || textIsEmpty(toFileName)) {
-            LabelTips.setText("字段不能为空");
+            setStatus("字段不能为空");
             return;
         }
 
@@ -66,27 +84,39 @@ public class Step1InputDialog extends JDialog {
         System.out.println("to = " + to);
         System.out.println("toDirPrefix = " + toDirPrefix);
         System.out.println("toFileName = " + toFileName);
-
+        setStatus("图片生成中...");
         ImageUtils.Companion.bigBang(from, to, toDirPrefix, toFileName, new ImageUtils.Callback() {
             @Override
             public void finish() {
-                LabelTips.setText("完成");
+                setStatus("完成");
+                buttonOK.setText(STR_REVOKE);
             }
 
             @Override
             public void failed(@Nullable String msg) {
-                LabelTips.setText("失败:" + msg);
+                setStatus("失败:" + msg);
             }
         });
+    }
 
+    private void setStatus(String content) {
+        LabelTips.setText(content);
     }
 
     private boolean textIsEmpty(String txt) {
         return txt == null || txt.length() <= 0;
     }
 
-    private void onCancel() {
+    private void onFinish() {
+        cleanCache();
         dispose();
+    }
+
+    private void cleanCache() {
+        //清除缓存等数据
+        setStatus("删除缓存中...");
+        ImageUtils.Companion.deleteOldFiles();
+        setStatus("删除缓存完成");
     }
 
     public static void main(String[] args) {

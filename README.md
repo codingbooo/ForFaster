@@ -1,13 +1,14 @@
 # ForFaster
 
-android studio 插件集合
+android studio 插件
 
-![](https://img.shields.io/badge/PLUGIN-IDEA-brightgreen.svg)
+[![](https://img.shields.io/badge/PLUGIN-IDEA-brightgreen.svg)](https://plugins.jetbrains.com/)
 
 ## 1.Step1：复制图标
 
-![](https://img.shields.io/badge/version-1.2.0-brightgreen.svg)
-![](https://img.shields.io/badge/build-passing-brightgreen.svg)
+[![](https://img.shields.io/badge/version-1.2.0-brightgreen.svg)](https://github.com/codingbooo/ForFaster/releases)
+[![](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://plugins.jetbrains.com/plugin/10829-forfaster)
+
 
 ### 功能
 

@@ -2,8 +2,12 @@
 
 android studio 插件集合
 
+![](https://img.shields.io/badge/PLUGIN-IDEA-brightgreen.svg)
 
 ## 1.Step1：复制图标
+
+![](https://img.shields.io/badge/version-1.2.0-brightgreen.svg)
+![](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
 ### 功能
 

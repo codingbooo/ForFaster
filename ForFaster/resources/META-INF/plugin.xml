@@ -5,24 +5,24 @@
     <vendor email="cnsdbo@163.com" url="https://github.com/codingbooo/ForFaster">codingbo</vendor>
 
     <description><![CDATA[
-      这是一个提高你办公效率的插件.<br>
+      for faster.<br>
       <em>---by codingbo</em>
     ]]></description>
 
     <change-notes><![CDATA[
        <em>1.2.0</em><br>
-          1.增加撤销功能<br>
-          2.增加当前进度提示<br>
-          3.优化大图片分辨率压缩后模糊<br>
+          1.add revocation function<br>
+          2.add current progress alerts<br>
+          3. Optimizing blurring after compression of large image resolution<br>
           <br>
 
        <em>1.1.1</em><br>
-         1.增加错误提示<br>
-         2.完成时不再直接退出窗口<br>
+         1.add message when error<br>
+         2.No longer exit the window directly when finished<br>
          <br>
 
        <em>1.1.0</em><br>
-         Step1不在需要创建各个分辨率的图片文件,给定一个图片文件路径,程序将会自动处理图片<br>
+         Step1.Not need to create image files of various resolutions, given a picture file path, the program will automatically process the picture<br>
     ]]>
     </change-notes>
 

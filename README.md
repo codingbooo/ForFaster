@@ -6,7 +6,7 @@ android studio 插件
 
 ## 1.Step1：复制图标
 
-[![](https://img.shields.io/badge/version-1.2.0-brightgreen.svg)](https://github.com/codingbooo/ForFaster/releases)
+[![](https://img.shields.io/badge/version-1.2.1-brightgreen.svg)](https://github.com/codingbooo/ForFaster/releases)
 [![](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://plugins.jetbrains.com/plugin/10829-forfaster)
 
 

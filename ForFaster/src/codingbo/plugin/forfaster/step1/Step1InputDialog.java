@@ -30,11 +30,14 @@ public class Step1InputDialog extends JDialog {
     private JTextField tfToFileName;
     private JTextField tfToDirPrefix;
     private JLabel LabelTips;
+    private JCheckBox cbCutRound;
 
     public Step1InputDialog() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+
+        cbCutRound.setSelected(true);
 
         buttonOK.addActionListener(e -> onOK());
 
@@ -72,7 +75,7 @@ public class Step1InputDialog extends JDialog {
         String to = tfTo.getText();
         String toDirPrefix = tfToDirPrefix.getText();
         String toFileName = tfToFileName.getText();
-
+        boolean cutRound = cbCutRound.isSelected();
         if (textIsEmpty(from)
                 || textIsEmpty(to)
                 || textIsEmpty(toFileName)) {
@@ -85,7 +88,7 @@ public class Step1InputDialog extends JDialog {
         System.out.println("toDirPrefix = " + toDirPrefix);
         System.out.println("toFileName = " + toFileName);
         setStatus("图片生成中...");
-        ImageUtils.Companion.bigBang(from, to, toDirPrefix, toFileName, new ImageUtils.Callback() {
+        ImageUtils.Companion.bigBang(from, to, toDirPrefix, toFileName, cutRound, new ImageUtils.Callback() {
             @Override
             public void finish() {
                 setStatus("完成");

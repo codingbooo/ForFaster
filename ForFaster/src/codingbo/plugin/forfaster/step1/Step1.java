@@ -26,7 +26,7 @@ public class Step1 extends AnAction {
 
     public static void main(String[] args) {
         ImageUtils.Companion.bigBang("C:\\Users\\bob\\Desktop\\test\\icon.png",
-                "C:\\Users\\bob\\Desktop\\test", "mipmap", "ic_launch.png", new ImageUtils.Callback() {
+                "C:\\Users\\bob\\Desktop\\test", "mipmap", "ic_launch.png", true, new ImageUtils.Callback() {
                     @Override
                     public void finish() {
                         try {

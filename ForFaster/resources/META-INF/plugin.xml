@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>XianYu Co,.Ltd</id>
     <name>ForFaster</name>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <vendor email="cnsdbo@163.com" url="https://github.com/codingbooo/ForFaster">codingbo</vendor>
 
     <description><![CDATA[
@@ -10,6 +10,10 @@
     ]]></description>
 
     <change-notes><![CDATA[
+      <em>1.2.0</em><br>
+          1.add optional feature<br>
+          <br>
+
        <em>1.2.0</em><br>
           1.add revocation function<br>
           2.add current progress alerts<br>
@@ -31,7 +35,7 @@
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
-     <!--uncomment to enable plugin in all products-->
+    <!--uncomment to enable plugin in all products-->
     <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">

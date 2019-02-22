@@ -1,5 +1,6 @@
 package codingbo.plugin.forfaster.step1
 
+import com.intellij.diff.comparison.isAlpha
 import com.intellij.util.ui.UIUtil
 import java.awt.AlphaComposite
 import java.awt.Color
@@ -26,7 +27,7 @@ class ImageUtils {
          * 图标爆炸
          * 将指定图标文件 保存为 分辨率分别为 192, 144, 96, 72, 48的文件
          */
-        fun bigBang(inPath: String, outPath: String, outDirPrefix: String, outFileName: String, cb: Callback) {
+        fun bigBang(inPath: String, outPath: String, outDirPrefix: String, outFileName: String, cutRound: Boolean, cb: Callback) {
             try {
                 oldFiles.clear()
                 val file = File(inPath)
@@ -40,7 +41,7 @@ class ImageUtils {
                     if (originFile != null) {
                         oldFiles.add(originFile)
                     }
-                    val saveFile = scaleAndSave(rawImage, it.key, fileAbsPath)
+                    val saveFile = scaleAndSave(rawImage, it.key, fileAbsPath, cutRound)
                     if (saveFile != null) {
                         newFiles.add(saveFile)
                     }
@@ -103,14 +104,17 @@ class ImageUtils {
         /**
          * 缩放和保存
          */
-        fun scaleAndSave(rawImage: Image, size: Int, path: String): File? {
+        fun scaleAndSave(rawImage: Image, size: Int, path: String, cutRound: Boolean): File? {
             val file = File(path)
             file.parentFile.mkdirs()
             println("$size : $path")
             val image = rawImage.getScaledInstance(size, size, Image.SCALE_SMOOTH)
             var tag = UIUtil.createImage(size, size, BufferedImage.TYPE_INT_ARGB)
             tag.graphics.drawImage(image, 0, 0, null)
-            tag = makeRoundedCorner(tag, (size / 3).toFloat())
+
+            if (cutRound) {
+                tag = makeRoundedCorner(tag, (size / 3).toFloat())
+            }
             tag.graphics.dispose()
             ImageIO.write(tag, "PNG", file)
             return file
